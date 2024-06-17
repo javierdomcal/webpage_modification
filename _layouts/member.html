@@ -4,7 +4,7 @@ title: "{{ page.name_surname }}"
 ---
 
 <div class="member-profile">
-  <img src="./members/photos/{{ page.photo }}" alt="{{ page.name_surname }}">
+  <img src="{{ site.url }}{{ site.baseurl }}/photos/{{ page.photo }}" alt="{{ page.name_surname }}">
   <h1>{{ page.name_surname }}</h1>
   <p><strong>Position:</strong> {{ page.position }}</p>
   <p><strong>Email:</strong> <a href="mailto:{{ page.email }}">{{ page.email }}</a></p>

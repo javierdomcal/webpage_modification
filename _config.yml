@@ -1,3 +1,8 @@
+title: Members webpage
+description: A test on the members of the webpage
+baseurl: "/webpage_modification" # the name of your repository, e.g., /myblog
+url: "https://javierdomcal.github.io"
+
 collections:
   members:
     output: true

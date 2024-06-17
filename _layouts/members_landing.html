@@ -1,0 +1,104 @@
+---
+layout: default
+position: Members
+---
+
+<div class="members-page">
+  <h1>Members</h1>
+  <img src="/photos/group2022_06-22.jpg" alt="Group Photo">
+
+  <h2>Current Members</h2>
+  
+  {% assign group_leader = site.members | where: "position", "Leader" %}
+  {% assign postdocs = site.members | where: "position", "Postdoc" %}
+  {% assign phd_students = site.members | where: "position", "PhD student" %}
+  {% assign masters_students = site.members | where: "position", "Master" %}
+  {% assign scientific_staff = site.members | where: "position", "Scientific staff" %}
+
+  <h3>Group Leader</h3>
+
+  <ul>
+  {% for member in group_leader %}
+    <li>
+      <a href="{{ member.url }}">
+        <img src="/photos/{{ member.photo }}" alt="{{ member.name_surname}}">
+        {{ member.name_surname}}
+      </a>
+    </li>
+  {% endfor %}
+  </ul>
+
+  <h3>Scientific Staff</h3>
+  <ul>
+  {% for member in scientific_staff %}
+    <li>
+      <a href="{{ member.url }}">
+        <img src="/photos/{{ member.photo }}" alt="{{ member.name_surname}}">
+        {{ member.name_surname}}
+      </a>
+    </li>
+  {% endfor %}
+  </ul>
+
+  <h3>Postdocs</h3>
+  <ul>
+  {% for member in postdocs %}
+    <li>
+      <a href="{{ member.url }}">
+        <img src="/photos/{{ member.photo }}" alt="{{ member.name_surname}}">
+        {{ member.name_surname}}
+      </a>
+    </li>
+  {% endfor %}
+  </ul>
+
+  <h3>PhD Students</h3>
+  <ul>
+  {% for member in phd_students %}
+    <li>
+      <a href="{{ member.url }}">
+        <img src="/photos/{{ member.photo }}" alt="{{ member.name_surname}}">
+        {{ member.name_surname}}
+      </a>
+    </li>
+  {% endfor %}
+  </ul>
+
+  <h3>Master's Students</h3>
+  <ul>
+  {% for member in masters_students %}
+    <li>
+      <a href="{{ member.url }}">
+        <img src="/photos/{{ member.photo }}" alt="{{ member.name_surname}}">
+        {{ member.name_surname}}
+      </a>
+    </li>
+  {% endfor %}
+  </ul>
+
+  <h2>Former Members</h2>
+  {% assign ex_members = site.members | where: "position", "Alumni" %}
+  <ul>
+  {% for member in ex_members %}
+    <li>
+      <a href="{{ member.url }}">
+        <img src="/photos/{{ member.photo }}" alt="{{ member.name_surname}}">
+        {{ member.name_surname}}
+      </a>
+    </li>
+  {% endfor %}
+  </ul>
+
+  <h2>Visitors</h2>
+  {% assign visitors = site.members | where: "position", "Visitor" %}
+  <ul>
+  {% for member in visitors %}
+    <li>
+      <a href="{{ member.url }}">
+        <img src="/photos/{{ member.photo }}" alt="{{ member.name_surname}}">
+        {{ member.name_surname}}
+      </a>
+    </li>
+  {% endfor %}
+  </ul>
+</div>

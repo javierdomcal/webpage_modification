@@ -1,6 +1,6 @@
 title: Members webpage
 description: A test on the members of the webpage
-baseurl: "/webpage_modification" # the name of your repository, e.g., /myblog
+baseurl: "/webpage_modification" # the name of your repository
 url: "https://javierdomcal.github.io"
 
 collections:

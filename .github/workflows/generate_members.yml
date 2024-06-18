@@ -25,13 +25,13 @@ jobs:
       - name: Generate member pages
         run: python generate_members.py
 
-      - name: Commit changes
+      - name: Commit and push changes
         run: |
           git config --global user.name 'github-actions'
           git config --global user.email 'github-actions@github.com'
           git add _members/
           git commit -m 'Generate member pages'
-          git push
+          git push origin HEAD:$(git rev-parse --abbrev-ref HEAD)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

@@ -1,6 +1,6 @@
 title: "PhD student"
 content:
-  name_surname: "Markel Gonzalez de Txabarri"
+  name_surname: "Markel Ylla"
   position: "PhD student"
   photo: "markel.jpg"
   email: "markelgtx@gmail.com"
@@ -9,3 +9,4 @@ content:
     - "2020: BSc in Chemistry, Universidad del País Vasco/Euskal Herriko Unibertsitatea (UPV/EHU), Donostia, Euskal Herria."
   research_topics:
     - "Development, implementation, and applications of the intracule pair density."
+    - "Development of machine learning based correlation diagnostics."

@@ -1,0 +1,9 @@
+title: Members webpage
+description: A test on the members of the webpage
+baseurl: "" # the name of your repository
+url: "."
+
+collections:
+  members:
+    output: true
+    permalink: /members/:path/

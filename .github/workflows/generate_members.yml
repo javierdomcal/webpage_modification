@@ -1,10 +1,10 @@
-name: Generate Member Pages
+name: Generate and Deploy Member Pages
 
 on:
   push:
     paths:
       - '_data/*.yml'
-      - '.github/workflows/generate_members.yml'
+      - '.github/workflows/deploy.yml'
 
 jobs:
   build:
@@ -14,24 +14,24 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Set up Python
-        uses: actions/setup-python@v2
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
         with:
-          python-version: '3.x'
+          ruby-version: '2.7' # Specify the version of Ruby you need
+          bundler-cache: true
 
-      - name: Install PyYAML
-        run: pip install pyyaml
+      - name: Install dependencies
+        run: bundle install
 
       - name: Generate member pages
         run: python generate_members.py
 
-      - name: Commit and push changes
-        run: |
-          git config --global user.name 'github-actions'
-          git config --global user.email 'github-actions@github.com'
-          git add _members/
-          git commit -m 'Generate member pages'
-          git push origin HEAD:$(git rev-parse --abbrev-ref HEAD)
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build Jekyll site
+        run: bundle exec jekyll build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
 

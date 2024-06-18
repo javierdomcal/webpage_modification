@@ -1,6 +1,6 @@
 ---
 layout: default
-position: Members
+title: Members
 ---
 
 <div class="members-page">
@@ -10,14 +10,15 @@ position: Members
   <h2>Current Members</h2>
   
   {% assign group_leader = site.members | where: "position", "Leader" %}
+  {% assign scientific_staff = site.members | where: "position", "Scientific staff" %}
   {% assign postdocs = site.members | where: "position", "Postdoc" %}
   {% assign phd_students = site.members | where: "position", "PhD student" %}
-  {% assign masters_students = site.members | where: "position", "Master" %}
-  {% assign scientific_staff = site.members | where: "position", "Scientific staff" %}
+  {% assign masters_students = site.members | where: "position", "Master student" %}
+  {% assign ex_members = site.members | where: "position", "Alumni" %}
+  {% assign visitors = site.members | where: "position", "Visitor" %}
 
   <h3>Group Leader</h3>
-
-  <ul>
+  <ul class="group-leader">
   {% for member in group_leader %}
     <li>
       <a href="{{ site.url }}{{ site.baseurl }}/{{ member.url }}">
@@ -29,7 +30,7 @@ position: Members
   </ul>
 
   <h3>Scientific Staff</h3>
-  <ul>
+  <ul class="scientific-staff">
   {% for member in scientific_staff %}
     <li>
       <a href="{{ site.url }}{{ site.baseurl }}/{{ member.url }}">
@@ -41,7 +42,7 @@ position: Members
   </ul>
 
   <h3>Postdocs</h3>
-  <ul>
+  <ul class="postdoc">
   {% for member in postdocs %}
     <li>
       <a href="{{ site.url }}{{ site.baseurl }}/{{ member.url }}">
@@ -53,7 +54,7 @@ position: Members
   </ul>
 
   <h3>PhD Students</h3>
-  <ul>
+  <ul class="phd-student">
   {% for member in phd_students %}
     <li>
       <a href="{{ site.url }}{{ site.baseurl }}/{{ member.url }}">
@@ -65,7 +66,7 @@ position: Members
   </ul>
 
   <h3>Master's Students</h3>
-  <ul>
+  <ul class="master-student">
   {% for member in masters_students %}
     <li>
       <a href="{{ site.url }}{{ site.baseurl }}/{{ member.url }}">
@@ -77,8 +78,7 @@ position: Members
   </ul>
 
   <h2>Former Members</h2>
-  {% assign ex_members = site.members | where: "position", "Alumni" %}
-  <ul>
+  <ul class="alumni">
   {% for member in ex_members %}
     <li>
       <a href="{{ site.url }}{{ site.baseurl }}/{{ member.url }}">
@@ -90,12 +90,10 @@ position: Members
   </ul>
 
   <h2>Visitors</h2>
-  {% assign visitors = site.members | where: "position", "Visitor" %}
-  <ul>
+  <ul class="visitor">
   {% for member in visitors %}
-    <li>
+    <li class="visitor">
       <a href="{{ site.url }}{{ site.baseurl }}/{{ member.url }}">
-        <img src="{{ site.url }}{{ site.baseurl }}/photos/{{ member.photo }}" alt="{{ member.name_surname}}">
         {{ member.name_surname}}
       </a>
     </li>

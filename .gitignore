@@ -1,0 +1,11 @@
+# Ignore the local config file
+_config.yml
+
+# Ignore the site output folder
+_site/
+
+# Ignore other potential sensitive or unnecessary files
+.DS_Store
+*.log
+*.tmp
+*.swp
